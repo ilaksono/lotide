@@ -15,7 +15,3 @@ const eqArrays = (arr1,arr2) => {
     return false;
   return true;
 };
-
-console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"]));
-
-
