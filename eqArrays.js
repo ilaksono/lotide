@@ -3,14 +3,19 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = (arr1,arr2) => {
-  let max = arr1.length;
+  let max = -1;
+  arr2.length > arr1.length ? max = arr2.length : max = arr1.length;
   if (arr2.length > max)
     max = arr2.length;
   for (let i = 0; i < max; i++) {
     if (arr1[i] !== arr2[i])
       return false;
   }
+  if (max === -1)
+    return false;
   return true;
 };
 
-eqArrays(["1", "2", "3"], ["1", "2", "3"])
+console.log(eqArrays(["1", "2", "3"], ["1", "2", "3"]));
+
+
