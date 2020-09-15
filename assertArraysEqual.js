@@ -20,4 +20,4 @@ const assertArraysEqual = (ar1, ar2) => {
   return;
 };
 
-assertArraysEqual([1],[1,2]);
+assertArraysEqual([1,2],[1,2]);

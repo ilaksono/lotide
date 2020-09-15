@@ -33,7 +33,6 @@ const without = (srcA, rmA) => {
   return cpy;
 };
 
-
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
