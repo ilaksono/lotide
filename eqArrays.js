@@ -24,7 +24,7 @@ const eqArrays = (arr1, arr2) => {
     }
   } else
     return false;
-  return true;    
+  return true;
 };
 
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
