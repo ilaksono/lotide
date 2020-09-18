@@ -4,14 +4,12 @@ const eqObjects = (obj1, obj2) => {
       if (Array.isArray(obj1[key])) {
         if (!eqArrays(obj1[key], obj2[key]))
           return false;
-      }
-      else if(typeof obj1[key] === 'object')
+      } else if (typeof obj1[key] === 'object')
         return eqObjects(obj1[key], obj2[key]);
       else if (obj1[key] !== obj2[key])
         return false;
-      }  
     }
-  else
+  } else
     return false;
   return true;
 };
@@ -61,9 +59,9 @@ let test2 = eqObjects(cd, cd2); // => false
 assertEqual(test1, true);
 assertEqual(test2, false);
 
-const t1 = eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => true
-const t2 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => false
-const t3 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
+const t1 = eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
+const t2 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => false
+const t3 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }); // => false
 
 assertEqual(t1, true);
 
