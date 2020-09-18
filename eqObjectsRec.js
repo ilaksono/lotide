@@ -1,22 +1,21 @@
 const eqObjects = (obj1, obj2) => {
   if (Object.keys(obj1).length === Object.keys(obj2).length) {
-    for (let [key, value] of Object.entries(obj1)) {
-      if(Object.keys(value).length > 0)
-        return eqObjects(obj1[key], obj2[key]);
-      else {
-        if (Array.isArray(obj1[key])) {
-          if (!eqArrays(obj1[key], obj2[key]))
-            return false;
-        }
-        else if (obj1[key] !== obj2[key])
+    for (let key in obj1) {
+      if (Array.isArray(obj1[key])) {
+        if (!eqArrays(obj1[key], obj2[key]))
           return false;
+      }
+      else if(typeof obj1[key] === 'object')
+        return eqObjects(obj1[key], obj2[key]);
+      else if (obj1[key] !== obj2[key])
+        return false;
       }  
     }
-  }
   else
     return false;
   return true;
 };
+
 const assertEqual = function(actual, expected) {
   actual === expected ? console.log(`✅ Assertion Passed ✅: ${actual} === ${expected}`) : console.log(`${String.fromCodePoint(0x1F631)} Assertion Failed ${String.fromCodePoint(0x1F631)}: '${actual}' !== '${expected}'`);
 };
@@ -67,3 +66,7 @@ const t2 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => f
 const t3 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
 
 assertEqual(t1, true);
+
+assertEqual(t2, false);
+
+assertEqual(t3, false);
