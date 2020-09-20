@@ -31,3 +31,5 @@ const assertArraysEqual = (ar1, ar2) => {
 };
 
 assertArraysEqual([1,2],[1,2]);
+
+module.exports = assertArraysEqual;

@@ -80,3 +80,5 @@ const t1 = eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
 // const t3 = eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
 
 assertEqual(t1, true);
+
+module.exports = eqObjects;

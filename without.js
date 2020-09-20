@@ -20,16 +20,29 @@ const assertArraysEqual = (ar1, ar2) => {
   return;
 };
 
-const without = (srcA, rmA) => {
-  let cpy = [...srcA];
-  for (let i = 0; i < rmA.length; i++) {
-    for (let j = 0; j < cpy.length; j++) {
-      if (cpy[j] === rmA[i]) {
-        cpy.splice(j, 1);
-        i--;
-      }
-    }
+// const without = (srcA, rmA) => {
+//   let cpy = [...srcA];
+//   for (let i = 0; i < rmA.length; i++) {
+//     for (let j = 0; j < cpy.length; j++) {
+//       if (cpy[j] === rmA[i]) {
+//         cpy.splice(j--, 1);
+//       }
+//     }
+//   }
+//   return cpy;
+// };
+
+const without = (src, rm) => {
+  let cpy = [...src];
+  let current = rm.shift(); 
+  for(let i = 0; i < cpy.length; i++) {
+    if(current === cpy[i]) {
+      cpy.splice(i,1);
+      i--;
+    }  
   }
+  if(rm.length > 0)
+    cpy =  without(cpy, rm);
   return cpy;
 };
 
@@ -37,3 +50,7 @@ const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+console.log(without(['this', 'is','is', 'a', 'a', 'string'], ['a', 'is']));
+
+
+module.exports = without;

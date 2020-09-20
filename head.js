@@ -7,3 +7,5 @@ const head = (arr) => {
 }
 
 assertEqual(head([]), 5);
+
+module.exports = head;

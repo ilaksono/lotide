@@ -32,3 +32,8 @@ assertArraysEqual(test2, ['groundhello', 'controlhello', 'tohello', 'majorhello'
 
 let test3 = map(words, word => word.length);
 assertArraysEqual(test3, [6,7,2,5,3]);
+
+module.exports = {
+  maps: maps
+};
+
