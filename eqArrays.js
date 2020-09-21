@@ -1,5 +1,3 @@
-const assertEqual = require('./assertEqual');
-
 const eqArrays = (ar1, ar2) => {
   let arr1 = [...ar1];
   let arr2 = [...ar2];
@@ -17,12 +15,5 @@ const eqArrays = (ar1, ar2) => {
     return false;
   return eqArrays(arr1, arr2);
 };
-// assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-// assertEqual(eqArrays([1, [2], 3], [1, 2]), false);
-// assertEqual(eqArrays([1,[[2],3]],[1,[[2],3]]), true);
-// assertEqual(eqArrays([1,[2],3],[1,[2],[3]]), false);
-// assertEqual(eqArrays([1,[2],[3]],[1,[2],[3]]), true);
-// assertEqual(eqArrays([[[[[[[1]]]]]]], [[[[[1]]]]]), false)
-// assertEqual(eqArrays([[[1]]], [[[2]]]), false)
 
 module.exports = eqArrays;
