@@ -31,3 +31,4 @@ assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
 const res1 = findKeyByValue({testProp1: 3, testProp2: 0}, 0);
 assertEqual(res1, 'testProp2');
 
+module.exports = findKeyByValue;
