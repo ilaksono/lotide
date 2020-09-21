@@ -1,4 +1,4 @@
-const eqArrays = (ar1, ar2) => {
+const eqArrays = function(ar1, ar2) {
   let arr1 = [...ar1];
   let arr2 = [...ar2];
   if(arr1.length === 0 && arr2.length === 0)
