@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@ilaksono/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "a revision of lodash library",
   "main": "assertArraysEqual.js",
   "scripts": {
     "test": "mocha"
@@ -11,7 +11,7 @@
     "url": "git+https://github.com/ilaksono/lotide.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ian L",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ilaksono/lotide/issues"

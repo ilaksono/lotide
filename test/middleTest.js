@@ -13,6 +13,11 @@ describe('#middle', () => {
     expect(test).to.eql([]);
   });
 
+  it('should return [] with []', () => {
+    test = middle([]);
+    expect(test).to.eql([]);
+  });
+
   it('should return [3,4] with [1,2,3,4,5,6]', () => {
     test = middle([1, 2, 3, 4, 5, 6]);
     expect(test).to.eql([3, 4]);

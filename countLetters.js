@@ -6,6 +6,4 @@ const countLetters = (str) => {
   return alphaObj;
 };
 
-console.log(countLetters('iuashdkjhs   ajkd'));
-
 module.exports = countLetters;
