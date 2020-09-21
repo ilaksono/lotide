@@ -26,9 +26,6 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
-* `function1(...)`: description
-* `function2(...)`: description
-* `function3(...)`: description
 * `head(arr)`: returns first element of an array
 * `tail(arr)`: returns an array without first element
 * `middle(arr)`: returns array of middle element(s) of argument array
