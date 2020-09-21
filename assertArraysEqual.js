@@ -1,26 +1,4 @@
-// const eqArrays = (arr1,arr2) => {
-//   let max = -1;
-//   arr2.length > arr1.length ? max = arr2.length : max = arr1.length;
-//   if (arr2.length > max)
-//     max = arr2.length;
-//   for (let i = 0; i < max; i++) {
-//     if (arr1[i] !== arr2[i])
-//       return false;
-//   }
-//   if (max === -1)
-//     return false;
-//   return true;
-// };
-const eqArrays = (arr1, arr2) => {
-  if (arr1.length === arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i])
-        return false;
-    }
-  } else
-    return false;
-  return true;
-};
+const eqArrays = require('./eqArrays');
 
 const assertArraysEqual = (ar1, ar2) => {
   if (eqArrays(ar1, ar2))
@@ -30,6 +8,6 @@ const assertArraysEqual = (ar1, ar2) => {
   return;
 };
 
-assertArraysEqual([1,2],[1,2]);
+// assertArraysEqual([1,2],[1,2]);
 
 module.exports = assertArraysEqual;

@@ -1,6 +1,6 @@
 
 // const cd = [1,2,3,4];
-
+'use strict'
 // const mutate = obj => {
 //   obj2 = [...obj];
 //   obj2 = obj.splice(0,2);
@@ -27,3 +27,34 @@
 // }
 
 // console.log(sum1toN(5));
+
+const obj = {
+  a: 1,
+  b: 2,
+  length: Object.keys(this).length
+};
+
+let obj2 = {
+  a: 1,
+  b: 2,
+  length: () => Object.keys(this).length,
+  c: function() { 
+    return this.a;
+  }
+}
+
+
+let obj3 = {
+  a: 1,
+  b: 2,
+  length: function() { 
+    return Object.keys(this).length;
+  }
+}
+
+console.log(obj.length);
+
+console.log(obj2.length());
+console.log(obj2.c());
+
+console.log(obj3.length());

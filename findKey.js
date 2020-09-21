@@ -1,3 +1,5 @@
+const assertEqual = require('./assertEqual');
+
 const findKey = (obj, cb) => {
   for (let [key, value] of Object.entries(obj)) {
     if (cb(value) || cb(key))
@@ -5,9 +7,6 @@ const findKey = (obj, cb) => {
   }
 };
 
-const assertEqual = function(actual, expected) {
-  actual === expected ? console.log(`✅ Assertion Passed ✅: ${actual} === ${expected}`) : console.log(`${String.fromCodePoint(0x1F631)} Assertion Failed ${String.fromCodePoint(0x1F631)}: '${actual}' !== '${expected}'`);
-};
 
 const res = findKey({
   "Blue Hill": { stars: 1 },

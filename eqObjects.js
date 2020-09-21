@@ -1,36 +1,5 @@
-const assertEqual = function(actual, expected) {
-  actual === expected ? console.log(`✅ Assertion Passed ✅: ${actual} === ${expected}`) : console.log(`${String.fromCodePoint(0x1F631)} Assertion Failed ${String.fromCodePoint(0x1F631)}: '${actual}' !== '${expected}'`);
-};
-
-const eqArrays = (arr1, arr2) => {
-  let max = -1;
-  arr2.length > arr1.length ? max = arr2.length : max = arr1.length;
-  if (arr2.length > max)
-    max = arr2.length;
-  for (let i = 0; i < max; i++) {
-    if (arr1[i] !== arr2[i])
-      return false;
-  }
-  if (max === -1)
-    return false;
-  return true;
-};
-
-// const eqObjects = (obj1, obj2) => {
-//   if (Object.keys(obj1).length === Object.keys(obj2).length) {
-//     for (let key in obj1) {
-//       if (Array.isArray(obj1[key])) {
-//         if (!eqArrays(obj1[key], obj2[key]))
-//           return false;
-//       }
-//       else if (obj1[key] !== obj2[key])
-//         return false;
-//     }
-//   }
-//   else
-//     return false;
-//   return true;
-// };
+const assertEqual = require('./assertEqual');
+const eqArrays = require('./eqArrays');
 
 const eqObjects = (obj1, obj2) => {
   if (Object.keys(obj1).length === Object.keys(obj2).length) {
@@ -38,8 +7,10 @@ const eqObjects = (obj1, obj2) => {
       if (Array.isArray(obj1[key])) {
         if (!eqArrays(obj1[key], obj2[key]))
           return false;
-      } else if (typeof obj1[key] === 'object')
-        return eqObjects(obj1[key], obj2[key]);
+      } else if (typeof obj1[key] === 'object') {
+        if (!eqObjects(obj1[key], obj2[key]))
+          return false;
+      }
       else if (obj1[key] !== obj2[key])
         return false;
     }
@@ -57,6 +28,26 @@ let res2 = eqObjects(ab, abc); // => false
 
 assertEqual(res1, true);
 assertEqual(res2, false);
+
+assertEqual(eqObjects({
+  a: {
+    name: 'Peter',
+    val: 5
+  },
+  b: {
+    name: 'Jim',
+    val: 4
+  }
+}, {
+  a: {
+    name: 'Peter',
+    val: 5
+  },
+  b: {
+    name: 'Jim',
+    val: 5
+  }
+}), false);
 
 /*
 In this simple scenario, two objects are equal when:

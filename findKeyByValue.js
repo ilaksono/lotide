@@ -1,10 +1,9 @@
+const assertEqual = require('./assertEqual');
+
 const bestTVShowsByGenre = {
   sci_fi: "The Expanse",
   comedy: "Brooklyn Nine-Nine",
   drama:  "The Wire"
-};
-const assertEqual = function(actual, expected) {
-  actual === expected ? console.log(`✅ Assertion Passed ✅: ${actual} === ${expected}`) : console.log(`${String.fromCodePoint(0x1F631)} Assertion Failed ${String.fromCodePoint(0x1F631)}: '${actual}' !== '${expected}'`);
 };
 
 const findKeyByValue = (obj, val) => {

@@ -1,27 +1,4 @@
-const eqArrays = (arr1, arr2) => {
-  if (arr1.length === arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] !== arr2[i])
-        return false;
-    }
-  } else
-    return false;
-  return true;
-};
-
-const eqObjects = (obj1, obj2) => {
-  if (Object.keys(obj1).length === Object.keys(obj2).length) {
-    for (let key in obj1) {
-      if (Array.isArray(obj1[key])) {
-        if (!eqArrays(obj1[key], obj2[key]))
-          return false;
-      } else if (obj1[key] !== obj2[key])
-        return false;
-    }
-  } else
-    return false;
-  return true;
-};
+const eqObjects = require('./eqObjects');
 
 const assertObjectsEqual = (actual, expected) => {
   const inspect = require('util').inspect;
@@ -32,5 +9,27 @@ assertObjectsEqual({ a: '1', b: 2 }, { b: 2, a: '1' });
 //assertion passed: {a: '1', b: 2 === b: 2, a: '1'}
 
 assertObjectsEqual({a: 1, b: 2}, {b: 1, a:2});
+//asertion failed
+
+testObj = {
+  a: {
+    name: 'Peter',
+    val: 5
+  },
+  b: {
+    name: 'Jim',
+    val: 4
+  }
+}
+assertObjectsEqual({
+  a: {
+    name: 'Peter',
+    val: 5
+  },
+  b: {
+    name: 'Jim',
+    val: 4
+  }
+}, testObj);
 
 module.exports = assertObjectsEqual;
