@@ -1,10 +1,10 @@
 const middle = arr => {
-  if (arr.length >= 0 && arr.length <= 2)
+  let len = arr.length;
+  if (len >= 0 && len <= 2)
     return [];
-  if (arr.length % 2 === 1)
-    return [arr[Math.floor(arr.length / 2)]];
-  return [arr[arr.length / 2 - 1], arr[arr.length / 2]];
+  if (len % 2 === 1)
+    return [arr[Math.floor(len / 2)]];
+  return [arr[len / 2 - 1], arr[len / 2]];
 };
-
 
 module.exports = middle;

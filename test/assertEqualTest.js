@@ -1,3 +1,8 @@
 const assertEqual = require('../assertEqual');
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
+const expect = require('chai').expect;
+
+describe('', () => {
+  it('should return undefined with any arguments', () => {
+    expect(assertEqual('milk', 'milk')).to.equal(undefined);
+  });
+});
